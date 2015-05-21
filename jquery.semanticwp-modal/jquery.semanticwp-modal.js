@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.0.0
+ * @version 1.0.1
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -294,6 +294,7 @@
 			D.container.block.hide();
 			$('BODY').append(D.overlay.block);
 			$('BODY').append(D.container.block);
+			D.container.block.css('zIndex', D.overlay.block.css('zIndex'));
 
 			// Событие
 			D.beforeOpen(D, $this);
