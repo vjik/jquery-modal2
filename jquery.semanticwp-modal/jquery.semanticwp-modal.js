@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.0.1
+ * @version 1.0.2
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -120,6 +120,13 @@
 				return false;
 			});
 
+		},
+
+
+		// Задать отступ для Wrap
+		set_wrap_margin_right: function(D, offset) {
+			D.wrap.css('marginRight', offset + 'px');
+			$(document).trigger('swpmodalSetWrapMarginRight', offset);
 		},
 
 
@@ -307,7 +314,7 @@
 				D.wrap.css('overflow', 'hidden');
 				var w2 = D.wrap.outerWidth(true);
 				if (w2 != w1)
-					D.wrap.css('marginRight', (w2 - w1) + 'px');
+					modal.set_wrap_margin_right(D, w2 - w1);
 			}
 
 			// Скрыть предыдущие оверлеи
@@ -369,7 +376,7 @@
 						if (!$('.swpmodal-container').length) {
 							if (D.wrap.data('swpmodalOverflow'))
 								D.wrap.css('overflow', D.wrap.data('swpmodalOverflow'));
-							D.wrap.css('marginRight', 0);
+							modal.set_wrap_margin_right(D, 0);
 						}
 
 					});
