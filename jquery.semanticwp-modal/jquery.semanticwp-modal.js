@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.0.2
+ * @version 1.0.3
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -111,18 +111,6 @@
 		},
 
 
-		// Подготвка содержимого окна
-		prepare_body: function(D, $this) {
-
-			// Обработчик закрытия
-			$('.swpmodal-close', D.body).unbind('click.swpmodal').bind('click.swpmodal', function() {
-				$this.swpmodal('close');
-				return false;
-			});
-
-		},
-
-
 		// Задать отступ для Wrap
 		set_wrap_margin_right: function(D, offset) {
 			D.wrap.css('marginRight', offset + 'px');
@@ -155,8 +143,11 @@
 				D.body.html($this);
 			}
 
-			// Подготовка содержимого
-			modal.prepare_body(D, $this);
+			// Закрытие при клике на элемент с соответствующим классом
+			D.body.on('click', '.swpmodal-close', function() {
+				$this.swpmodal('close');
+				return false;
+			});
 
 			// Закрытие при клике на overlay
 			if (D.closeOnOverlayClick)
@@ -205,7 +196,6 @@
 					} else {
 						fn_success(D, $this, response);
 					}
-					modal.prepare_body(D, $this);
 
 					// Событие после загрузки после отображения содержимого
 					$this.trigger('afterLoadingOnShow');
