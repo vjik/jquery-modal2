@@ -1,7 +1,7 @@
 {
   "name": "jquery.semanticwp-modal",
   "title": "SemanticWP Modal",
-  "version": "1.0.1",
+  "version": "1.0.4",
   "devDependencies": {
     "gulp": "^3.8.11",
     "gulp-rename": "^1.2.2",

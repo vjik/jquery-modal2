@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.0.3
+ * @version 1.0.4
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -298,10 +298,10 @@
 			$this.trigger('beforeOpen');
 
 			// Wrap
-			if (D.wrap.css('overflow') != 'hidden') {
-				D.wrap.data('swpmodalOverflow', D.wrap.css('overflow'));
+			if (D.wrap.css('overflow-y') != 'hidden') {
+				D.wrap.data('swpmodalOverflow', D.wrap.css('overflow-y'));
 				var w1 = D.wrap.outerWidth(true);
-				D.wrap.css('overflow', 'hidden');
+				D.wrap.css('overflow-y', 'hidden');
 				var w2 = D.wrap.outerWidth(true);
 				if (w2 != w1)
 					modal.set_wrap_margin_right(D, w2 - w1);
@@ -365,7 +365,7 @@
 						$this.data('swpmodal', null);
 						if (!$('.swpmodal-container').length) {
 							if (D.wrap.data('swpmodalOverflow'))
-								D.wrap.css('overflow', D.wrap.data('swpmodalOverflow'));
+								D.wrap.css('overflow-y', D.wrap.data('swpmodalOverflow'));
 							modal.set_wrap_margin_right(D, 0);
 						}
 
