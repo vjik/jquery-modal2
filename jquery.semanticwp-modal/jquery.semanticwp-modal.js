@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.0.4
+ * @version 1.1.0
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -30,7 +30,7 @@
 
 		container: {
 			block: undefined,
-			tpl: '<div class="swpmodal-container"><table class="swpmodal-container_i"><tr><td class="swpmodal-container_i2"></td></tr></table></div>'
+			tpl: '<div class="swpmodal-container"><div class="swpmodal-container_i"><div class="swpmodal-container_i2"></div></div></div>'
 		},
 
 		wrap: undefined,
@@ -50,6 +50,9 @@
 			type: 'fade',
 			speed: 400
 		},
+
+		width: 'auto',
+		verticalAlign: 'middle',
 
 		beforeOpen: $.noop,
 		afterOpen: $.noop,
@@ -314,6 +317,8 @@
 			});
 
 			// Показать
+			D.body.css('verticalAlign', D.verticalAlign);
+			D.body.parent().css('width', D.width);
 			modal.transition(D.overlay.block, 'show', modals.length > 1 ? {type: 'none'} : D.openEffect);
 			modal.transition(D.container.block, 'show', modals.length > 1 ? {type: 'none'} : D.openEffect, function() {
 				D.afterOpen(D, $this);

@@ -9,23 +9,18 @@
 }
 .swpmodal-container {
 	overflow: auto;
-	margin: 0;
-	padding: 0;
-	border: 0;
-	border-collapse: collapse;
 }
 *:first-child + html .swpmodal-container {
 	height: 100%
 }
 .swpmodal-container_i {
+	display: table;
 	height: 100%;
 	margin: 0 auto;
 }
 .swpmodal-container_i2 {
+	display: table-cell;
 	padding: 24px;
-	margin: 0;
-	border: 0;
-	vertical-align: middle;
 }
 
 
