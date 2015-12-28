@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.1.0
+ * @version 1.2.0
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -31,6 +31,11 @@
 		container: {
 			block: undefined,
 			tpl: '<div class="swpmodal-container"><div class="swpmodal-container_i"><div class="swpmodal-container_i2"></div></div></div>'
+		},
+
+		preloader: {
+			verticalAlign: undefined,
+			tpl: '<div class="swpmodal-preloader" />'
 		},
 
 		wrap: undefined,
@@ -184,7 +189,9 @@
 			var o = $.extend(true, {
 				url: D.url,
 				beforeSend: function() {
-					D.body.html('<div class="swpmodal-loading" />');
+					D.body
+						.html(D.preloader.tpl)
+						.css('verticalAlign', D.preloader.verticalAlign === undefined ? D.verticalAlign : D.preloader.verticalAlign);
 					if (fn_beforeSend !== undefined)
 						fn_beforeSend(D, $this);
 				},
@@ -193,6 +200,8 @@
 					// Событие после загрузки до показа содержимого
 					$this.trigger('afterLoading');
 					response = D.afterLoading(D, $this, response) || response;
+
+					D.body.css('verticalAlign', D.verticalAlign);
 
 					if (fn_success == undefined) {
 						D.body.html(response);
