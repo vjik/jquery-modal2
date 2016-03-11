@@ -1,6 +1,6 @@
 /*!
  * SemanticWP Modal
- * @version 1.2.0
+ * @version 1.3.0
  * @author Sergey Predvoditelev
  */
 (function($) {
@@ -391,6 +391,15 @@
 					modals = modals.not($this);
 				});
 			}
+		},
+
+
+		// Возвращает данные об активном окне
+		getActive: function() {
+			var b = $('.swpmodal-container').last();
+			if (b.length)
+				return b.data('swpmodalParentEl').data('swpmodal');
+			return false;
 		},
 
 
