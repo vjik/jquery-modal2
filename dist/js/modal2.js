@@ -260,29 +260,23 @@
                     $.error('Modal2: Uncorrect parameters');
                     return;
                 }
-                if (options.type == '') {
-                    $.error('Modal2: Don\'t set parameter "type"');
-                    return;
-                }
-                switch (options.type) {
-                    case 'html':
-                        if (options.content == '') {
-                            $.error('Modal2: Don\'t set parameter "content"');
-                            return;
-                        }
-                        var c = options.content;
-                        options.content = '';
 
-                        return modal.initEl($(c), options);
-                        break;
-                    case 'ajax':
-                        if (options.url == '') {
-                            $.error('Modal2: Don\'t set parameter "url"');
-                            return;
-                        }
-                        return modal.initEl($('<div />'), options);
-                        break;
+                // AJAX
+                if (options.url != '') {
+                    options.type = 'ajax';
+                    return modal.initEl($('<div />'), options);
                 }
+
+                // HTML
+                if (options.content != '') {
+                    options.type = 'html';
+                    return modal.initEl($(options.content), options);
+                }
+
+                // Неизвестный тип
+                $.error('Modal2: Set parameter "url" or "content"');
+                return;
+
             } else {
                 return this.each(function() {
                     modal.initEl($(this), $.extend(true, {}, options));

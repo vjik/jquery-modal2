@@ -2,7 +2,7 @@
     "name": "jquery-modal2",
     "title": "Modal2",
     "description": "Modal2 is a jQuery based implement modal boxes.",
-    "version": "2.0.0",
+    "version": "2.0.1",
     "devDependencies": {
         "gulp": "^3.8.11",
         "gulp-rename": "^1.2.2",
