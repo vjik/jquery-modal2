@@ -1,0 +1,20 @@
+{
+    "name": "vjik/jquery-modal2",
+    "description": "Modal2 is a jQuery based implement modal boxes.",
+    "version": "2.0.0",
+    "type": "library",
+    "keywords": [
+        "modal"
+    ],
+    "license": "MIT",
+    "support": {
+        "issues": "https://github.com/vjik/jquery-modal2/issues",
+        "source": "https://github.com/vjik/jquery-modal2"
+    },
+    "authors": [
+        {
+            "name": "Sergey Predvoditelev",
+            "email": "sergey.predvoditelev@gmail.com"
+        }
+    ]
+}
