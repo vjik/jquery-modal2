@@ -1,0 +1,40 @@
+.modal2-overlay,
+.modal2-container {
+	position: fixed;
+	left: 0;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 1000;
+}
+.modal2-container {
+	overflow: auto;
+}
+*:first-child + html .modal2-container {
+	height: 100%
+}
+.modal2-container_i {
+	display: table;
+	height: 100%;
+	margin: 0 auto;
+}
+.modal2-container_i2 {
+	display: table-cell;
+	padding: 24px;
+}
+
+
+.modal2-error {
+	padding: 20px;
+	border-radius: 10px;
+	background: #000;
+	color: #fff;
+}
+
+
+.modal2-preloader {
+	width: 80px;
+	height: 80px;
+	border-radius: 10px;
+	background: #000 url(preloader.gif) no-repeat 50% 50%;
+}
