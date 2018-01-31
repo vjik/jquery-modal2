@@ -205,7 +205,7 @@
                 success: function(response) {
 
                     // Событие после загрузки до показа содержимого
-                    $this.trigger('afterLoading');
+                    $this.trigger('afterLoading.modal2');
                     response = D.afterLoading(D, $this, response) || response;
 
                     D.body.css('verticalAlign', D.verticalAlign);
@@ -217,14 +217,14 @@
                     }
 
                     // Событие после загрузки после отображения содержимого
-                    $this.trigger('afterLoadingOnShow');
+                    $this.trigger('afterLoadingOnShow.modal2');
                     D.afterLoadingOnShow(D, $this, response);
 
                 },
                 error: function() {
 
                     // Событие при ошибке загрузки
-                    $this.trigger('errorLoading');
+                    $this.trigger('errorLoading.modal2');
                     D.errorLoading(D, $this);
 
                     if (fn_error == undefined) {
@@ -306,7 +306,7 @@
 
             // Событие
             D.beforeOpen(D, $this);
-            $this.trigger('beforeOpen');
+            $this.trigger('beforeOpen.modal2');
 
             // Wrap
             if (D.wrap.css('overflow-y') != 'hidden') {
@@ -333,7 +333,7 @@
             modal.transition(D.container.block, 'show',
                 modals.length > 1 ? {type: 'none'} : D.openEffect, function() {
                     D.afterOpen(D, $this);
-                    $this.trigger('afterOpen');
+                    $this.trigger('afterOpen.modal2');
                 });
 
             return $this;
@@ -358,7 +358,7 @@
                     if (D.beforeClose(D, $this) === false) {
                         return;
                     }
-                    $this.trigger('beforeClose');
+                    $this.trigger('beforeClose.modal2');
 
                     // Показать предыдущие оверлеи
                     modals.not($this).last().each(function() {
@@ -374,7 +374,7 @@
 
                             // Событие после закрытия
                             D.afterClose(D, $this);
-                            $this.trigger('afterClose');
+                            $this.trigger('afterClose.modal2');
 
                             // Если не клонировали - вернём на место
                             if (!D.clone) {

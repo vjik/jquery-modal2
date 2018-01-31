@@ -1,3 +1,6 @@
+2.0.2 (31.01.2018)
++ Для событий afterLoading, afterLoadingOnShow, errorLoading, beforeOpen, afterOpen, beforeClose, afterClose добавлено пространство имён modal2.
+
 2.0.1 (29.07.2017)
 * Автоматическое определение типа (HTML или AJAX)
 

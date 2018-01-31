@@ -1,7 +1,7 @@
 {
     "name": "vjik/jquery-modal2",
     "description": "Modal2 is a jQuery based implement modal boxes.",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "type": "library",
     "keywords": [
         "modal"
